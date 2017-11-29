@@ -20,6 +20,13 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+
+  <modules>
+    <module>c3p0</module>
+    <module>ssm</module>
+  </modules>
+
   <build>
     <finalName>public_projects</finalName>
     <plugins>
@@ -44,9 +51,4 @@
       </plugin>
     </plugins>
   </build>
-
-  <modules>
-    <module>c3p0</module>
-    <module>ssm</module>
-  </modules>
 </project>
