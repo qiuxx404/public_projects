@@ -25,7 +25,6 @@
   <modules>
     <module>c3p0</module>
     <module>ssm</module>
-    <module>ssm_crm</module>
   </modules>
 
   <build>
