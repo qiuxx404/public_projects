@@ -18,14 +18,36 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <qiuxx-ssmdz-api-version>1.0-SNAPSHOT</qiuxx-ssmdz-api-version>
+        <junit-version>3.8.1</junit-version>
+        <spring-version>2.5.6</spring-version>
+        <mybatis-version>3.4.1</mybatis-version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>${junit-version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.qiuxx</groupId>
+            <artifactId>qiuxx-ssmdz-api</artifactId>
+            <version>${qiuxx-ssmdz-api-version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework/spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring</artifactId>
+            <version>${spring-version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis-version}</version>
+        </dependency>
+
     </dependencies>
 </project>
