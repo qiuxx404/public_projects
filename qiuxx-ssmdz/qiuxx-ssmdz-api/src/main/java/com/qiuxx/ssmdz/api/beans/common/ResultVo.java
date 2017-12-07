@@ -36,7 +36,7 @@ public class ResultVo implements Serializable{
         this.msg = msg;
     }
 
-    public ResultVo(String kind, boolean result, String msg, Object data) {
+    public ResultVo(boolean result, Object data, String kind, String msg) {
         this.kind = kind;
         this.result = result;
         this.msg = msg;

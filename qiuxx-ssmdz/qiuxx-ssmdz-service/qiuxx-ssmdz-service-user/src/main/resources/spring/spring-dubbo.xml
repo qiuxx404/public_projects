@@ -2,10 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <dubbo:application name="ssmdz_user_provider"/>
-    <dubbo:registry address="${dubbo.registry.address}" file="${dubbo.cache.file}" group="${dubbo.registry.group}"/>
-    <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}" accesslog="${dubbo.protocol.accesslog}"/>
 
+    <dubbo:application name="qiuxx_ssmdz_provider"/>
+    <dubbo:registry address="zookeeper://localhost:2181"/>
+    <dubbo:protocol name="dubbo" port="10001"/>
 </beans>
