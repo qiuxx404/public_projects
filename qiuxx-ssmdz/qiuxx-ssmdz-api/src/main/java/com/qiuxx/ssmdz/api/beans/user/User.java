@@ -1,11 +1,13 @@
 package com.qiuxx.ssmdz.api.beans.user;
 
+import java.io.Serializable;
+
 /**
  * @Description:   user bean
  * @Author: qiuxx
  * @Date: 11:06 2017/12/6
  */
-public class User {
+public class User implements Serializable{
     private String userName;
     private String userTelephone;
     private String userAddress;
