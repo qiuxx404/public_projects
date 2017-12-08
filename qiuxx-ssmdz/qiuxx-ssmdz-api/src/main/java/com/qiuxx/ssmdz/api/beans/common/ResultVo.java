@@ -16,7 +16,7 @@ public class ResultVo implements Serializable{
     private Date nowtime = new Date(); //当前时间
 
     public ResultVo(){
-        this.result = true;
+        this.result = false;
     }
 
     public ResultVo(boolean result,String kind){

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.qiuxx.ssmdz.orm.user.UserDao">
     <!-- 保存用户信息 -->
-    <insert id="insertUser" useGeneratedKeys="true" keyProperty="dto.prrId">
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="dto.userId">
       INSERT user(user_name,user_telephone,user_address,user_email,user_description)
       VALUES(#{dto.userName},#{dto.userTelephone},#{dto.userAddress},#{dto.userEmail},#{dto.userDescription})
     </insert>
@@ -10,15 +10,10 @@
     <!-- 根据userName更新用户信息 -->
     <update id="updateUserByName" >
         UPDATE user SET
-        <if test="#{dto.userTelephone} !=null">
-            user_telephone=#{dto.userTelephone}
-        </if>
-        <if test="#{dto.userAddress} != null">
-            user_address=#{dto.userAddress}
-        </if>
-        <if test="#{dto.userDescription} != null">
-            user_description=#{dto.userDescription}
-        </if>
+        user_telephone=#{dto.userTelephone},
+        user_address=#{dto.userAddress},
+        user_description=#{dto.userDescription},
+        user_email=#{dto.userEmail}
         WHERE user_name=#{dto.userName}
     </update>
 
@@ -29,13 +24,13 @@
 
     <!-- 根据userName查询用户信息详情 -->
     <select id="getUserByName" resultType="com.qiuxx.ssmdz.api.beans.user.UserVo">
-        SELECT user_name,user_telephone,user_address,user_email,user_description
+        SELECT user_id,user_name,user_telephone,user_address,user_email,user_description FROM user
         WHERE user_name=#{dto.userName}
     </select>
 
     <!-- 查询所有用户 -->
     <select id="getUserList" resultType="com.qiuxx.ssmdz.api.beans.user.UserVo">
-        SELECT user_name,user_telephone,user_address,user_email,user_description
+        SELECT user_id,user_name,user_telephone,user_address,user_email,user_description FROM user
     </select>
 
 </mapper>
