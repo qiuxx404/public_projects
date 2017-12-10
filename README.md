@@ -7,5 +7,5 @@ some public projects ----maven
 1）maven install qiuxx-ssmdz-api              一些bean与interface      <br/>
 2）maven install qiuxx-ssmdz-orm-user         user orm，dao层           <br/>
 3）maven install qiuxx-ssmdz-service-user      user service             <br/>
-4）运行qiuxx-ssmdz-service-user中的maven方法    启动服务                  <br/>
+4）启动zkServer.cmd,运行qiuxx-ssmdz-service-user中的main方法    启动服务                  <br/>
 5）run jetty qiuxx-ssmdz-server                启动消费                  <br/>
