@@ -16,10 +16,6 @@
         <module>qiuxx-ssmdz-orm-user</module>
     </modules>
 
-    <properties>
-        <qiuxx-ssmdz-api-version>1.0-SNAPSHOT</qiuxx-ssmdz-api-version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>junit</groupId>

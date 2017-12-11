@@ -7,7 +7,7 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 1 配置c3p0数据源-->
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+    <!--<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="${jdbc.driverClass}"/>
         <property name="jdbcUrl" value="${jdbc.url}"/>
         <property name="user" value="${jdbc.user}"/>
@@ -16,6 +16,14 @@
         <property name="minPoolSize" value="${jdbc.minPoolSize}"/>
         <property name="initialPoolSize" value="${jdbc.initalPoolSize}"/>
         <property name="maxStatements" value="${jdbc.statements}"/>
+    </bean>-->
+
+    <!--1 配置Druid 数据源 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" 
+          init-method="init" destroy-method="close">
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
     </bean>
 
     <!-- 2 为Mybatis创建SqlSessionFactory，同时指定数据源 -->
