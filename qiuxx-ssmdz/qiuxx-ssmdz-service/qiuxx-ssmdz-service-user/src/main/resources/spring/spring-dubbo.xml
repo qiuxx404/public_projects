@@ -7,8 +7,7 @@
        http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-
     <dubbo:application name="qiuxx_ssmdz_provider"/>
-    <dubbo:registry address="zookeeper://localhost:2181"/>
-    <dubbo:protocol name="dubbo" port="10001"/>
+    <dubbo:registry address="${dubbo.registry.address}"/>
+    <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}"/>
 </beans>

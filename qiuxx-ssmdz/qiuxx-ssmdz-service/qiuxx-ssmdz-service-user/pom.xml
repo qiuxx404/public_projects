@@ -13,32 +13,6 @@
     <name>qiuxx-ssmdz-service-user</name>
     <url>http://maven.apache.org</url>
 
-    <build>
-        <resources>
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>**/*.properties</include>
-                </includes>
-
-            </resource>
-
-            <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>**/*.*</include>
-                </includes>
-            </resource>
-        </resources>
-    </build>
-
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.github.sgroschupf/zkclient -->
         <dependency>
@@ -111,7 +85,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>${slf4j-log4j12-version}</version>
-            <scope>test</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.alibaba/dubbo -->
         <dependency>
@@ -160,7 +133,7 @@
     </dependencies>
 
 
-<!--    <profiles>
+    <profiles>
         <profile>
             <id>dev</id>
             <properties>
@@ -169,6 +142,18 @@
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+        </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <env>test</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <env>prod</env>
+            </properties>
         </profile>
     </profiles>
 
@@ -179,16 +164,18 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>true</filtering>
             </resource>
             <resource>
-                <directory>src/main/java</directory>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
                 <includes>
                     <include>**/*.xml</include>
                     <include>**/*.properties</include>
                 </includes>
-                <filtering>true</filtering>
             </resource>
         </resources>
-    </build>-->
+        <plugins>
+
+        </plugins>
+    </build>
 </project>

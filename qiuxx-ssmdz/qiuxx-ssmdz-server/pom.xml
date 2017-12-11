@@ -11,27 +11,7 @@
     <name>qiuxx-ssmdz-server Maven Webapp</name>
     <url>http://maven.apache.org</url>
 
-    <build>
-        <plugins>
-            <!-- jetty插件 -->
-            <plugin>
-                <groupId>org.eclipse.jetty</groupId>
-                <artifactId>jetty-maven-plugin</artifactId>
-                <!--<version>9.0.0.v20130308</version>-->
-                <version>9.2.7.v20150116</version>
-                <configuration>
-                    <scanIntervalSeconds>3</scanIntervalSeconds>
-                    <webApp>
-                        <contextPath>/qiuxx-ssmdz-server</contextPath>
-                    </webApp>
-                    <httpConnector>
-                        <port>8888</port>
-                    </httpConnector>
-                    <reload>automatic</reload>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+
 
     <dependencies>
         <dependency>
@@ -137,7 +117,7 @@
         </dependency>
     </dependencies>
 
-  <!--  <profiles>
+    <profiles>
         <profile>
             <id>dev</id>
             <properties>
@@ -147,26 +127,57 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
         </profile>
+        <profile>
+            <id>test</id>
+            <properties>
+                <env>test</env>
+            </properties>
+        </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <env>prod</env>
+            </properties>
+        </profile>
     </profiles>
 
     <build>
-        <finalName>qiuxx-ssmdz-server</finalName>
         <filters>
             <filter>src/main/resources/profiles/${env}.properties</filter>
         </filters>
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>true</filtering>
             </resource>
             <resource>
-                <directory>src/main/java</directory>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
                 <includes>
                     <include>**/*.xml</include>
                     <include>**/*.properties</include>
                 </includes>
-                <filtering>true</filtering>
             </resource>
         </resources>
-    </build>-->
+
+        <plugins>
+            <!-- jetty插件 -->
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <!--<version>9.0.0.v20130308</version>-->
+                <version>9.2.7.v20150116</version>
+                <configuration>
+                    <scanIntervalSeconds>3</scanIntervalSeconds>
+                    <webApp>
+                        <contextPath>/qiuxx-ssmdz-server</contextPath>
+                    </webApp>
+                    <httpConnector>
+                        <port>8888</port>
+                    </httpConnector>
+                    <reload>automatic</reload>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
