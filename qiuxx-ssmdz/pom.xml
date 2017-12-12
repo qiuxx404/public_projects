@@ -13,7 +13,7 @@
         <module>qiuxx-ssmdz-api</module>
         <module>qiuxx-ssmdz-orm</module>
         <module>qiuxx-ssmdz-service</module>
-        <module>qiuxx-ssmdz-server</module>
+        <module>qiuxx-ssmdz-restapi</module>
     </modules>
 
     <properties>
