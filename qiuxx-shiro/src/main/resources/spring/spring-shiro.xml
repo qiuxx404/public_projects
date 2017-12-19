@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 1 配置realm -->
+    <bean id="myRealm" class="com.qiuxx.shiro.utils.MysqlJdbcRealm"/>
+
+    <!-- 2 配置securityManager -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="myRealm"/>
+    </bean>
+
+    <!-- 3 配置anno ，authc -->
+    <bean id="authc" class="com.qiuxx.shiro.utils.MyAccessFilter"/>
+    <bean id="anon" class="org.apache.shiro.web.filter.authc.AnonymousFilter"/>
+
+    <!-- 4 shiro配置，关键两点，配置SecurityManager和依赖的RealM -->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/admin/login"/>
+        <property name="successUrl" value="/admin/home"/>
+        <property name="unauthorizedUrl" value="/admin/login"/>
+        <property name="filters">
+            <map>
+                <entry key="anon" value-ref="anon"/>
+                <entry key="authc" value-ref="authc"/>
+            </map>
+        </property>
+        <property name="filterChainDefinitionMap">
+            <map>
+                <entry key="anon" value-ref="anon"/>
+                <entry key="authc" value-ref="authc"/>
+            </map>
+        </property>
+        <property name="filterChainDefinitions">
+            <value>
+                /admin/login=anon
+                <!-- /admin/validCode=anon -->
+                /user/**=authc
+                /role/**=authc
+                /permission/**=authc
+                /**=authc
+            </value>
+        </property>
+    </bean>
+</beans>
