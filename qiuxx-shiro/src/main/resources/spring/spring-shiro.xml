@@ -1,47 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+<beans default-autowire="byName" xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       xmlns:context="http://www.springframework.org/schema/context">
 
-    <!-- 1 配置realm -->
-    <bean id="myRealm" class="com.qiuxx.shiro.utils.MysqlJdbcRealm"/>
+    <context:annotation-config></context:annotation-config>
+    <context:component-scan base-package="com.qiuxx.shiro.service"/>
 
-    <!-- 2 配置securityManager -->
+    <!--配置安全管理器-->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="myRealm"/>
     </bean>
 
-    <!-- 3 配置anno ，authc -->
-    <bean id="authc" class="com.qiuxx.shiro.utils.MyAccessFilter"/>
-    <bean id="anon" class="org.apache.shiro.web.filter.authc.AnonymousFilter"/>
+     <!--配置自定义Realm-->
+    <bean id="myRealm" class="com.qiuxx.shiro.utils.MysqlJdbcRealm"/>
 
-    <!-- 4 shiro配置，关键两点，配置SecurityManager和依赖的RealM -->
+    <!-- 配置 Bean 后置处理器: 会自动的调用和 Spring 整合后各个组件的生命周期方法. -->
+    <bean id="lifecycleBeanPostProcessor"
+          class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+     <!--shiro核心控制器 配置-->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+         <!--配置shiro的安全接口，这个配置时必须的-->
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/admin/login"/>
-        <property name="successUrl" value="/admin/home"/>
-        <property name="unauthorizedUrl" value="/admin/login"/>
-        <property name="filters">
-            <map>
-                <entry key="anon" value-ref="anon"/>
-                <entry key="authc" value-ref="authc"/>
-            </map>
-        </property>
-        <property name="filterChainDefinitionMap">
-            <map>
-                <entry key="anon" value-ref="anon"/>
-                <entry key="authc" value-ref="authc"/>
-            </map>
-        </property>
+          <!--身份认证失败，转到登录界面-->
+        <property name="loginUrl" value="/login.jsp"/>
+         <!--权限认证失败，转到指定页面-->
+        <property name="unauthorizedUrl" value="/nopower.jsp"/>
+         <!--shiro连接约束配置，即过滤链的定义-->
         <property name="filterChainDefinitions">
             <value>
-                /admin/login=anon
-                <!-- /admin/validCode=anon -->
-                /user/**=authc
-                /role/**=authc
-                /permission/**=authc
-                /**=authc
+                 <!--anon表示不需要鉴权 可以匿名登录-->
+                /tourist=anon
+                 <!--authc 表示 需要鉴权-->
+                /admin=authc
             </value>
         </property>
+    </bean>
+
+     <!--保证实现了shiro内部lifecycle函数的bean执行-->
+    <!--<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>-->
+
+     <!--开启shiro注解-->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor"/>
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
     </bean>
 </beans>

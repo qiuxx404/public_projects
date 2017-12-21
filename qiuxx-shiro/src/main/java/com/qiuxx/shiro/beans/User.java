@@ -9,7 +9,7 @@ public class User {
 
     private long shiroUserId;//用户id
     private String shiroUserName;//用户名
-    private String shiroPassword;//用户密码
+    private String shiroUserPassword;//用户密码
 
     public long getShiroUserId() {
         return shiroUserId;
@@ -27,12 +27,12 @@ public class User {
         this.shiroUserName = shiroUserName;
     }
 
-    public String getShiroPassword() {
-        return shiroPassword;
+    public String getShiroUserPassword() {
+        return shiroUserPassword;
     }
 
-    public void setShiroPassword(String shiroPassword) {
-        this.shiroPassword = shiroPassword;
+    public void setShiroUserPassword(String shiroUserPassword) {
+        this.shiroUserPassword = shiroUserPassword;
     }
 
     @Override
@@ -40,7 +40,7 @@ public class User {
         return "User{" +
                 "shiroUserId=" + shiroUserId +
                 ", shiroUserName='" + shiroUserName + '\'' +
-                ", shiroPassword='" + shiroPassword + '\'' +
+                ", shiroPassword='" + shiroUserPassword + '\'' +
                 '}';
     }
 }
