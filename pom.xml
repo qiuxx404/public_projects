@@ -25,6 +25,7 @@
     <module>c3p0</module>
     <module>ssm</module>
     <module>qiuxx-ssmdz</module>
+      <module>qiuxx-spring-security</module>
   </modules>
 
   <build>

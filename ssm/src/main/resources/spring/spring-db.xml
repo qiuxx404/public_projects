@@ -32,11 +32,12 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:spring/mybatis-config.xml"/>
         <property name="typeAliasesPackage" value="com.qiuxx.ssm.beans"/>
+        <property name="mapperLocations" value="classpath:com/qiuxx/ssm/dao/*.xml"/>
     </bean>
 
     <!--3 自动扫描mybatis映射文件和接口包-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.qiuxx.ssm.orm"/>
+        <property name="basePackage" value="com.qiuxx.ssm.dao"/>
     </bean>
 
     <!--4 配置事务管理器-->

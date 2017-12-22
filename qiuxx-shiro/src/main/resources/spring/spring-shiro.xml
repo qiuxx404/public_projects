@@ -4,8 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
        xmlns:context="http://www.springframework.org/schema/context">
 
-    <context:annotation-config></context:annotation-config>
-    <context:component-scan base-package="com.qiuxx.shiro.service"/>
+    <context:component-scan base-package="com.qiuxx.shiro"/>
 
     <!--配置安全管理器-->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
@@ -34,6 +33,7 @@
                 /tourist=anon
                  <!--authc 表示 需要鉴权-->
                 /admin=authc
+                /list=authc
             </value>
         </property>
     </bean>
