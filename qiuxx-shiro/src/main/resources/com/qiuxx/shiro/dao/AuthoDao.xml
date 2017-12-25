@@ -7,7 +7,7 @@
         FROM shiro_user WHERE shiro_user_name=#{shiroUserName}
     </select>
 
-    <select id="getRolesByUserId" resultType="String">
+    <select id="getRolesByUserName" resultType="String">
         SELECT r.shiro_role_name from
         shiro_role r LEFT JOIN shiro_user_role s on r.shiro_role_id in
         (SELECT shiro_role_id from shiro_user_role w LEFT JOIN shiro_user u on w.shiro_user_id=u.shiro_user_id
@@ -15,8 +15,8 @@
         )
     </select>
 
-    <select id="getPremissionsByRole" resultType="String">
-        SELECT p.shiro_premission_name FROM shiro_premission p LEFT JOIN shiro_role_premission i
+    <select id="getPremissionsByUserName" resultType="String">
+        SELECT p.shiro_premission_url FROM shiro_premission p LEFT JOIN shiro_role_premission i
         on p.shiro_premission_id=i.shiro_premission_id where i.shiro_role_id
         in (SELECT r.shiro_role_id from
         shiro_role r LEFT JOIN shiro_user_role s on r.shiro_role_id in

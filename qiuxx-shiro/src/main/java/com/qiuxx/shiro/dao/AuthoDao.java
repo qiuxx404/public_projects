@@ -24,12 +24,12 @@ public interface AuthoDao {
     /**
      * 根据用户userId 查询用户拥有角色Role id
      */
-    Set<String> getRolesByUserId(String shiroUserName);
+    Set<String> getRolesByUserName(String shiroUserName);
 
     /**
      * 根据角色roleId 查询用户所拥有的资源id
      */
-    Set<String> getPremissionsByRoleId(Set<String> shiroRoleName);
+    Set<String> getPremissionsByUserName(String shiroUserName);
 
     /**
      * 获取user列表

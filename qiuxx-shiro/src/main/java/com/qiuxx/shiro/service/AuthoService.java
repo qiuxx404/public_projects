@@ -20,14 +20,14 @@ public interface AuthoService {
     public User getUserByUserName(String shiroUserName);
 
     /**
-     * 根据用户userId 查询用户拥有角色Role
+     * 根据用户shiroUserName 查询用户拥有角色Role
      */
-    public Set<String> getRolesByUserId(String shiroUserName);
+    public Set<String> getRolesByUserName(String shiroUserName);
 
     /**
-     * 根据角色roleId 查询用户所拥有的资源
+     * 根据shiroUserName查询用户所拥有的资源
      */
-    public Set<String> getPremissionsByRoleId(Set<String> shiroRoleName);
+    public Set<String> getPremissionsByUserName(String shiroUserName);
 
     /**
      * 获取用户列表

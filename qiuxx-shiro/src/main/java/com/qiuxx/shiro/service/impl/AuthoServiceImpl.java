@@ -29,13 +29,13 @@ public class AuthoServiceImpl implements AuthoService {
     }
 
     @Override
-    public Set<String> getRolesByUserId(String shiroUserName) {
-        return authoDao.getRolesByUserId(shiroUserName);
+    public Set<String> getRolesByUserName(String shiroUserName) {
+        return authoDao.getRolesByUserName(shiroUserName);
     }
 
     @Override
-    public Set<String> getPremissionsByRoleId(Set<String> shiroRoleName) {
-        return authoDao.getPremissionsByRoleId(shiroRoleName);
+    public Set<String> getPremissionsByUserName(String shiroUserName) {
+        return authoDao.getPremissionsByUserName(shiroUserName);
     }
 
     @Override

@@ -12,7 +12,7 @@
 </head>
 <body>
 <p>这是登录页面</p>
-<form action="${pageContext.request.contextPath}/login">
+<form action="${pageContext.request.contextPath}/qiuxx/authc/login">
 
         <input type="text" name="shiroUserName"/> <br>
         <input type="password" name="shiroUserPassword"/><br>

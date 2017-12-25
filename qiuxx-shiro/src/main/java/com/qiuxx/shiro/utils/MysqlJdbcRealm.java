@@ -52,10 +52,12 @@ public class MysqlJdbcRealm extends JdbcRealm{
         System.out.println(">>>>>>>>>>>>>>>>> doGetAuthorizationInfo >>>>>>>>>");
         String shiroUserName = principals.getPrimaryPrincipal().toString();
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-        Set<String> shiroRoleName = authoService.getRolesByUserId(shiroUserName);
+        Set<String> shiroRoleName = authoService.getRolesByUserName(shiroUserName);
         System.out.println(shiroRoleName.toArray().toString()+">>>>>>>>>>>>");
-        Set<String> shiroPremissionName = authoService.getPremissionsByRoleId(shiroRoleName);
-        System.out.println(shiroPremissionName.toArray().toString()+">>>>>>>>>>>>>>>>");
+        Set<String> shiroPremissionName = authoService.getPremissionsByUserName(shiroUserName);
+        for (String s : shiroPremissionName){
+            System.out.println(s+">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        }
         info.setRoles(shiroRoleName);
         info.setStringPermissions(shiroPremissionName);
         return info;

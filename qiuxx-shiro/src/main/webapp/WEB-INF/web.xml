@@ -5,6 +5,20 @@
          http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
     <display-name>qiuxx-shiro</display-name>
 
+    <!--配置SpringMVC核心控制器-->
+    <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring/springmvc.xml</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
     <!-- shiro 过滤器定义 -->
     <filter>
         <filter-name>shiroFilter</filter-name>
@@ -29,19 +43,6 @@
         <param-value>classpath:spring/spring-context.xml</param-value>
     </context-param>
 
-    <!--配置SpringMVC核心控制器-->
-    <servlet>
-        <servlet-name>DispatcherServlet</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring/springmvc.xml</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DispatcherServlet</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
 
     <!--配置日志-->
     <context-param>

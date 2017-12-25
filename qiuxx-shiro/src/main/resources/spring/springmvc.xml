@@ -12,7 +12,7 @@
 
 
     <!--1 开启事务注解扫描-->
-    <tx:annotation-driven/>
+    <mvc:annotation-driven/>
     <!--MVC注解-->
     <!--<mvc:annotation-driven/>-->
 
@@ -21,6 +21,13 @@
 
     <!--2 开启springioc 自动扫描注解包-->
     <context:component-scan base-package="com.qiuxx.shiro"/>
+    
+    <!--<mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/qiuxx/users/**"/>
+            <bean class="com.qiuxx.shiro.utils.MyAccessFilter"/>
+        </mvc:interceptor>
+    </mvc:interceptors>-->
 
     <!--3 配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
