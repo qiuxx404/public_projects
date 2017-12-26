@@ -22,33 +22,11 @@ public class FramePermissionsAuthorizationFilter extends PermissionsAuthorizatio
 
     @Override
     public boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) throws IOException {
-       // Subject subject = SecurityUtils.getSubject();
-        //User  user = (User)subject.getPrincipal();
 
         HttpServletRequest req = (HttpServletRequest)request;
-        Subject subject1 = getSubject(request, response);
-        String uri = req.getRequestURI();
-       // String requestURL = req.getRequestURI().toString();
         String contextPath = req.getContextPath();
-
-        int i = uri.indexOf(contextPath);
-        if (i > -1) {
-            uri = uri.substring(i + contextPath.length());
-        }
-        if (StringUtils.isBlank(uri)){
-            uri="/";
-        }
-        boolean permitted = false;
-        if ("/".equals(uri)) {
-            permitted = true;
-        } else {
-            permitted = subject1.isPermitted(uri);
-        }
-//        String isqx = "否";
-//        if(permitted) {
-//            isqx = "是";
-//        }
-
-        return permitted;
+        String uri = req.getRequestURI().substring(contextPath.length());
+        boolean flage = SecurityUtils.getSubject().isPermitted(uri);
+        return flage;
     }
 }

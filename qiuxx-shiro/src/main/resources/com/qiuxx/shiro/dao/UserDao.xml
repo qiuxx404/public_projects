@@ -14,24 +14,24 @@
         user_address=#{dto.userAddress},
         user_description=#{dto.userDescription},
         user_email=#{dto.userEmail}
-        WHERE user_name=#{dto.userName}
+        WHERE user_name=#{dto.userName} AND is_deleted='N'
     </update>
 
     <!-- 根据userName删除用户信息 -->
     <delete id="deleteUserByName" >
-        uppdate  user set is_deleted="Y" WHERE user_name=#{dto.userName}
+        update  user set is_deleted='Y' WHERE user_name=#{dto.userName}
     </delete>
 
     <!-- 根据userName查询用户信息详情 -->
     <select id="getUserByName" resultType="com.qiuxx.shiro.beans.users.UserVo">
         SELECT user_id,user_name,user_telephone,user_address,user_email,user_description FROM user
-        WHERE user_name=#{dto.userName} AND is_deleted="N"
+        WHERE user_name=#{dto.userName} AND is_deleted='N'
     </select>
 
     <!-- 查询所有用户 -->
     <select id="getUserList" resultType="com.qiuxx.shiro.beans.users.UserVo">
         SELECT user_id,user_name,user_telephone,user_address,user_email,user_description FROM user
-        WHERE is_deleted="N"
+        WHERE is_deleted='N'
     </select>
 
 </mapper>

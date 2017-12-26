@@ -28,7 +28,6 @@ public class AuthoController {
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public ResultVo login(@RequestBody User user){
-        System.out.println(">>>>>>>>>>>> login >>>>>>>>>>>>>>>>>>>");
         Subject subject = SecurityUtils.getSubject();
         UsernamePasswordToken token = new UsernamePasswordToken(user.getShiroUserName(), user.getShiroUserPassword());
         try {
@@ -49,26 +48,11 @@ public class AuthoController {
     @RequestMapping(value = "/loginout", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
     @ResponseBody
     public ResultVo loginOut(@RequestBody User user){
-        System.out.println(">>>>>>>>>>>> loginOut >>>>>>>>>>>>>>>>>>>");
         Subject subject = SecurityUtils.getSubject();
         if (subject.isAuthenticated()) {
             subject.logout(); // session 会销毁，在SessionListener监听session销毁，清理权限缓存
-
                 System.out.println(("用户" + user.getShiroUserName() + "退出登录"));
         }
         return new ResultVo();
-    }
-
-
-    @RequestMapping("/tourist")
-    public String testst(){
-        System.out.println(">>>>>>>>>>>>>>>>>>>>"+authoService.getUserList().toString()+">>>>>>>>>>>>>>>>");
-        return "success";
-    }
-
-    @RequestMapping("/list")
-    public String list(){
-        System.out.println(">>>>>>>>>>>>>>>>>>>>"+authoService.getUserList().toString()+">>>>>>>>>>>>>>>>");
-        return "success";
     }
 }

@@ -3,29 +3,21 @@
 <mapper namespace="com.qiuxx.shiro.dao.AuthoDao">
 
     <select id="getUserByUserName" resultType="com.qiuxx.shiro.beans.User">
-        SELECT shiro_user_id, shiro_user_name, shiro_user_password
-        FROM shiro_user WHERE shiro_user_name=#{shiroUserName}
+        SELECT shiro_user_name,shiro_user_password FROM shiro_user
+         WHERE is_deleted='N' AND shiro_user_name=#{shiroUserName}
     </select>
 
     <select id="getRolesByUserName" resultType="String">
-        SELECT r.shiro_role_name from
-        shiro_role r LEFT JOIN shiro_user_role s on r.shiro_role_id in
-        (SELECT shiro_role_id from shiro_user_role w LEFT JOIN shiro_user u on w.shiro_user_id=u.shiro_user_id
-        WHERE u.shiro_user_id=#{shiroUserName}
-        )
+        SELECT shiro_role_name from shiro_role r WHERE r.shiro_role_id in
+		(SELECT shiro_role_id from shiro_user_role ur LEFT JOIN shiro_user u
+		on ur.shiro_user_id=u.shiro_user_id WHERE u.shiro_user_name=#{shiroUserName})
     </select>
 
     <select id="getPremissionsByUserName" resultType="String">
-        SELECT p.shiro_premission_url FROM shiro_premission p LEFT JOIN shiro_role_premission i
-        on p.shiro_premission_id=i.shiro_premission_id where i.shiro_role_id
-        in (SELECT r.shiro_role_id from
-        shiro_role r LEFT JOIN shiro_user_role s on r.shiro_role_id in
-        (SELECT shiro_role_id from shiro_user_role w LEFT JOIN shiro_user u on w.shiro_user_id=u.shiro_user_id
-        WHERE u.shiro_user_id=#{shiroUserName}
-        ))
+        SELECT shiro_premission_url from shiro_premission p
+			LEFT JOIN shiro_role_premission rp on p.shiro_premission_id=rp.shiro_premission_id
+			WHERE rp.shiro_role_id in (SELECT shiro_role_id from shiro_user_role ur
+			LEFT JOIN shiro_user u on u.shiro_user_id=ur.shiro_user_id WHERE u.shiro_user_name=#{shiroUserName})
     </select>
 
-    <select id="getUserList" resultType="com.qiuxx.shiro.beans.User">
-        SELECT shiro_user_id,shiro_user_name,shiro_user_password FROM shiro_user
-    </select>
 </mapper>

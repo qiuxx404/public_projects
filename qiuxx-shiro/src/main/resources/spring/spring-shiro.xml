@@ -33,15 +33,15 @@
                  <!--authc 表示 需要鉴权-->
 
                 /qiuxx/authc/**=anon    <!-- 登录退出相关 -->
-                /qiuxx/users/**=authc,roles[admin]   <!-- users增删改查 -->
+                /qiuxx/users/**=user,frameperms   <!-- users增删改查 -->
             </value>
         </property>
         <!-- 声明自定义的过滤器 -->
-        <!--<property name="filters">
+        <property name="filters">
             <map>
                 <entry key="frameperms" value-ref="frameperms"></entry>
             </map>
-        </property>-->
+        </property>
     </bean>
 
      <!--保证实现了shiro内部lifecycle函数的bean执行-->

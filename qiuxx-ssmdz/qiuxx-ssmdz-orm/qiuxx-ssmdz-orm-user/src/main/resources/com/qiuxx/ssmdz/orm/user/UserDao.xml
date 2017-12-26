@@ -19,18 +19,19 @@
 
     <!-- 根据userName删除用户信息 -->
     <delete id="deleteUserByName" >
-        DELETE FROM  user WHERE user_name=#{dto.userName}
+        uppdate  user set is_deleted="Y" WHERE user_name=#{dto.userName}
     </delete>
 
     <!-- 根据userName查询用户信息详情 -->
     <select id="getUserByName" resultType="com.qiuxx.ssmdz.api.beans.user.UserVo">
         SELECT user_id,user_name,user_telephone,user_address,user_email,user_description FROM user
-        WHERE user_name=#{dto.userName}
+        WHERE user_name=#{dto.userName} AND is_deleted="N"
     </select>
 
     <!-- 查询所有用户 -->
     <select id="getUserList" resultType="com.qiuxx.ssmdz.api.beans.user.UserVo">
         SELECT user_id,user_name,user_telephone,user_address,user_email,user_description FROM user
-    </select>
+        WHERE is_deleted="N"
+</select>
 
 </mapper>

@@ -31,7 +31,6 @@ public class MysqlJdbcRealm extends JdbcRealm{
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
-        System.out.println(">>>>>>>>>>>>>>>>> doGetAuthenticationInfo >>>>>>>>>");
         String shiroUserName = token.getPrincipal().toString(); //获取用户名
         User user = authoService.getUserByUserName(shiroUserName);
         if(user == null){
@@ -49,15 +48,10 @@ public class MysqlJdbcRealm extends JdbcRealm{
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-        System.out.println(">>>>>>>>>>>>>>>>> doGetAuthorizationInfo >>>>>>>>>");
         String shiroUserName = principals.getPrimaryPrincipal().toString();
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         Set<String> shiroRoleName = authoService.getRolesByUserName(shiroUserName);
-        System.out.println(shiroRoleName.toArray().toString()+">>>>>>>>>>>>");
         Set<String> shiroPremissionName = authoService.getPremissionsByUserName(shiroUserName);
-        for (String s : shiroPremissionName){
-            System.out.println(s+">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
-        }
         info.setRoles(shiroRoleName);
         info.setStringPermissions(shiroPremissionName);
         return info;

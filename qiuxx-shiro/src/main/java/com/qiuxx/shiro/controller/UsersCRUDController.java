@@ -52,7 +52,6 @@ public class UsersCRUDController {
         }else{
             vo.setMsg("保存失败");
         }
-        System.out.println(">>>>>>>>>>>>>>>> insertUser成功 >>>>>>>>>>>>>>>>>>>>>>>>");
         return vo;
     }
 
@@ -74,7 +73,6 @@ public class UsersCRUDController {
         }else{
             vo.setResult(true);
         }
-        System.out.println(">>>>>>>>>>>>>>>> updateUserByName成功 >>>>>>>>>>>>>>>>>>>>>>>>");
         return vo;
     }
 
@@ -94,7 +92,6 @@ public class UsersCRUDController {
         }else{
             vo.setResult(true);
         }
-        System.out.println(">>>>>>>>>>>>>>>> deleteUserByName成功 >>>>>>>>>>>>>>>>>>>>>>>>");
         return vo;
     }
 
@@ -113,7 +110,6 @@ public class UsersCRUDController {
             vo.setResult(true);
             vo.setData(user);
         }
-        System.out.println(">>>>>>>>>>>>>>>> getUserByName成功 >>>>>>>>>>>>>>>>>>>>>>>>");
         return vo;
     }
 
@@ -129,8 +125,6 @@ public class UsersCRUDController {
             vo.setResult(true);
             vo.setData(list);
         }
-
-        System.out.println(">>>>>>>>>>>>>>>> getUserList成功 >>>>>>>>>>>>>>>>>>>>>>>>");
         return vo;
     }
 }

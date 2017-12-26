@@ -13,7 +13,7 @@ public class DataSourceUtil {
     private static final String username = "root";
     private static final String password = "qiuxx404";
     private static final String driverName = "com.mysql.jdbc.Driver";
-    private static final String url = "jdbc:mysql://localhost:3306/demo_test";
+    private static final String url = "jdbc:mysql://localhost:3306/demo_test?useUnicode=true&characterEncoding=UTF-8";
     private static final int maxPoolSize = 20;  //连接池最大连接数
     private static final int minPoolSize = 10;  //连接池最小连接数
     private static final int initialPoolSize = 10; //连接池初始的连接数
