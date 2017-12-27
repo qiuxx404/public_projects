@@ -2,13 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.qiuxx</groupId>
-  <artifactId>qiuxx-spring-security</artifactId>
+  <artifactId>qiuxx-springsecurity</artifactId>
   <packaging>war</packaging>
   <version>1.0-SNAPSHOT</version>
-  <name>qiuxx-spring-security Maven Webapp</name>
+  <name>qiuxx-springsecurity Maven Webapp</name>
   <url>http://maven.apache.org</url>
-
   <properties>
+    <junit-version>4.12</junit-version>
     <servlet-api-version>2.5</servlet-api-version>
     <c3p0-version>0.9.5.2</c3p0-version>
     <spring-version>4.3.13.RELEASE</spring-version>
@@ -19,13 +19,16 @@
     <slf4j-log4j12-version>1.7.25</slf4j-log4j12-version>
     <slf4j-api-version>1.7.25</slf4j-api-version>
     <mysql-connector-java-version>5.1.38</mysql-connector-java-version>
+    <jackson-annotations-version>2.9.0</jackson-annotations-version>
+    <jackson-core-version>2.9.0</jackson-core-version>
+    <jackson-databind-version>2.9.0</jackson-databind-version>
   </properties>
 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>${junit-version}</version>
       <scope>test</scope>
     </dependency>
     <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
@@ -120,10 +123,27 @@
       <artifactId>slf4j-api</artifactId>
       <version>${slf4j-api-version}</version>
     </dependency>
-
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>${jackson-annotations-version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson-core-version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson-databind-version}</version>
+    </dependency>
   </dependencies>
   <build>
-    <finalName>qiuxx-spring-security</finalName>
+    <finalName>qiuxx-springsecurity</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

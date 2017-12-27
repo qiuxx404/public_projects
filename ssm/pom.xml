@@ -18,6 +18,9 @@
     <slf4j-log4j12-version>1.7.25</slf4j-log4j12-version>
     <slf4j-api-version>1.7.25</slf4j-api-version>
     <mysql-connector-java-version>5.1.38</mysql-connector-java-version>
+    <jackson-annotations-version>2.9.0</jackson-annotations-version>
+    <jackson-core-version>2.9.0</jackson-core-version>
+    <jackson-databind-version>2.9.0</jackson-databind-version>
   </properties>
 
   <dependencies>
@@ -119,7 +122,24 @@
       <artifactId>slf4j-api</artifactId>
       <version>${slf4j-api-version}</version>
     </dependency>
-
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-annotations -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>${jackson-annotations-version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
+      <version>${jackson-core-version}</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind -->
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+      <version>${jackson-databind-version}</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>ssm</finalName>
