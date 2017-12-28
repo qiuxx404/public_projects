@@ -36,7 +36,7 @@
 
     <!--3 自动扫描mybatis映射文件和接口包-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.qiuxx.security.dao"/>
+        <property name="basePackage" value="com.qiuxx.security.xml.dao"/>
     </bean>
 
     <!--4 配置事务管理器-->
