@@ -1,8 +1,8 @@
 body {
-    background:url(../images/timg1.jpg) #f8f6e9;
+    background:url(../images/timg2.jpg) #f8f6e9;
 }
 .mycenter{
-    margin-top: 100px;
+    margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
     height: 350px;
@@ -22,7 +22,7 @@ body {
 .mycheckbox{
     margin-top:10px;
     /*margin-left: 40px;*/
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     height: 10px;
     color: #005cbf;
 }

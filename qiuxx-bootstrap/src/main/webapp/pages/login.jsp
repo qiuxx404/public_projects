@@ -20,7 +20,7 @@
     <div class="mycenter">
         <div class="mysign">
             <div class="col-lg-11 text-center text-info">
-                <h3>请登录</h3>
+                <h2>登&nbsp;&nbsp;&nbsp;&nbsp;录</h2>
             </div>
             <br>
             <div class="col-lg-10">
