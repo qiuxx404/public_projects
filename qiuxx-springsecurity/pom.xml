@@ -8,6 +8,7 @@
     <modules>
         <module>spsecurity-helloworld-annotation</module>
         <module>spsecurity-helloworld-xml</module>
+        <module>spsecurity-authority-example</module>
     </modules>
     <name>qiuxx-springsecurity Maven Webapp</name>
   <url>http://maven.apache.org</url>

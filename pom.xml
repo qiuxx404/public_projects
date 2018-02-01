@@ -28,6 +28,7 @@
     <module>qiuxx-shiro</module>
     <module>qiuxx-springsecurity</module>
     <module>qiuxx-bootstrap</module>
+    <module>qiuxx-websocket</module>
   </modules>
 
   <build>
