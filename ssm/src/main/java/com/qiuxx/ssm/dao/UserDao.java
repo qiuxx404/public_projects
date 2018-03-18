@@ -1,6 +1,6 @@
 package com.qiuxx.ssm.dao;
 
-import com.qiuxx.ssm.beans.User;
+import com.qiuxx.ssm.entity.User;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

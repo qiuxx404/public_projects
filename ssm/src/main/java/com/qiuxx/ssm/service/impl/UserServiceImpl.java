@@ -1,6 +1,6 @@
 package com.qiuxx.ssm.service.impl;
 
-import com.qiuxx.ssm.beans.User;
+import com.qiuxx.ssm.entity.User;
 import com.qiuxx.ssm.dao.UserDao;
 import com.qiuxx.ssm.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

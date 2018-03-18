@@ -1,7 +1,7 @@
 package com.qiuxx.ssm.service;
 
 
-import com.qiuxx.ssm.beans.User;
+import com.qiuxx.ssm.entity.User;
 
 import java.util.List;
 
