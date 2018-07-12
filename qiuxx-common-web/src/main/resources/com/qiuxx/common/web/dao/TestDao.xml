@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.qiuxx.ssm.dao.UserDao">
-    <!--<select id="getUserList" resultType="com.qiuxx.ssm.entity.User">
-        SELECT user_name,user_email,user_description,user_telephone,user_address
-        FROM user
-    </select>-->
-</mapper>

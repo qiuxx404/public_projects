@@ -29,7 +29,8 @@
     <module>qiuxx-springsecurity</module>
     <module>qiuxx-bootstrap</module>
     <module>qiuxx-websocket</module>
-      <module>qiuxx-common-web</module>
+      <module>java-base</module>
+      <module>qiuxx-source-data</module>
   </modules>
 
   <build>
