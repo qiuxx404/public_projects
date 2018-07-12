@@ -1,0 +1,28 @@
+
+    前言：
+    抽象工厂模式是所有形态的工厂模式中最为抽象和最具一般性的一种形态。抽象工厂模式是指当有多个抽象角色时，使用的一种工厂模式。
+    抽象工厂模式可以向客户端提供一个接口，使客户端在不必指定产品的具体的情况下，创建多个产品族中的产品对象。根据里氏替换原则，
+    任何接受父类型的地方，都应当能够接受子类型。因此，实际上系统所需要的，仅仅是类型与这些抽象产品角色相同的一些实例，
+    而不是这些抽象产品的实例。换言之，也就是这些抽象产品的具体子类的实例。工厂类负责创建抽象产品的具体子类的实例。
+
+    抽象工厂介绍：
+    在上一篇中介绍了工厂模式（通过定义一个Clothes接口，具体Suit、DownJackets等去实现Clothes中的方法，然后通过
+    ClothesFactory工厂类去生产制造所需要的服装），而当我们现在发现衣服还有男装、女装之分，这时我们可以采用抽象工厂模式。
+
+    A、服装实现（即产品）
+        1)定义统一服装接口Clothes，定义clothesCategory()、applicableOccasion()、applicableSex()方法;
+        2)定义抽象服装类（如AbstractSuit、AbstractDownJackets等）实现Clothes接口，在抽象服装类中实现
+            clothesCategory()与applicableOccasion()方法;
+        3)定义具体适用人群服装类(如MaleSuit、FemaleSuit等)继承抽象服装类（AbstractSuit），实现applicableSex()方法;
+        注:其中三个抽象类在抽象工厂模式中是叫做产品等级,六个实现类是叫做产品族
+
+    B、制造服装工厂
+        1)定义枚举类ClothesEnum（也可以写静态类等），将所有衣服类别罗列出来（包括性别区分）；
+        2)定义服装工厂接口ClothesFactory，定义createSuit()、createDownJackets()、createSportwear()方法；
+        3)定义抽象服装工厂类AbstractClothesFactory实现ClothesFactory，定义createClothes(ClothesEnum clothesEnum)方法
+            ，用于产生Clothes实例；
+        4)定义男性服装工厂类MaleClothesFactory与女性服装工厂类FemaleClothesFactory，继承AbstractClothesFactory，分别实现
+           createSuit()、createDownJackets()、createSportwear()方法；
+
+    C、调用方
+        通过创建男性工厂实例MaleClothesFactory与女性工厂实例FemaleClothesFactory，去创建所需要的男性服装或女性服装

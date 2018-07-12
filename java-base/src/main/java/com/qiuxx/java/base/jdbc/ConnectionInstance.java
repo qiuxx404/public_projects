@@ -1,6 +1,7 @@
 package com.qiuxx.java.base.jdbc;
 
 import java.sql.*;
+import java.util.Arrays;
 
 /**
  * @Description: jdbc连接数据库实例

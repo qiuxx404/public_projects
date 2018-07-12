@@ -7,7 +7,6 @@ package com.qiuxx.java.base.designpattern.simplefactorypattern;
  */
 public class DownJackets implements Clothes {
 
-
     @Override
     public void clothingCategory() {
         System.out.println("类别：羽绒服");
